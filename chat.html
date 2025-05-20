@@ -1,0 +1,184 @@
+
+<!--i used tawk.to website for chatbox-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat With Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6829a0ee5c188d190875ea05/1irh9p9ch';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #ffd600 0%, #ffb703 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeInBg 1.2s;
+    }
+    @keyframes fadeInBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .chat-header {
+      margin-top: 3rem;
+      text-align: center;
+      animation: slideDown 1s;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .chat-header h2 {
+      font-size: 2.5rem;
+      color: #004aad;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .chat-header p {
+      color: #333;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .chat-anim {
+      width: 180px;
+      margin: 0 auto 2rem auto;
+      display: block;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-18px);}
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, #ffd600 0%, #ffb703 100%);
+      color: #004aad;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.8rem 2.2rem;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 18px rgba(255, 183, 3, 0.15);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      margin-top: 1.5rem;
+      letter-spacing: 1px;
+      animation: fadeIn 2.5s;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #ffe066 0%, #ffb703 100%);
+      color: #222;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 32px rgba(255, 183, 3, 0.25);
+    }
+    footer {
+      background: #fffbe6;
+      color: #004aad;
+      text-align: center;
+      padding: 1.5rem 1rem 1rem 1rem;
+      width: 100%;
+      margin-top: 2rem;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-shadow: 0 -2px 16px rgba(0,0,0,0.04);
+      animation: slideUp 1.2s;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .footer-social {
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+    .footer-social a {
+      color: #ffb703;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover {
+      color: #004aad;
+    }
+    @media (max-width: 600px) {
+      .chat-header h2 { font-size: 1.5rem; }
+      .chat-anim { width: 120px; }
+      .cta-btn { font-size: 1rem; padding: 0.7rem 1.5rem; }
+      footer { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ...existing code... -->
+<div class="chat-header">
+  <img src="https://i.pinimg.com/originals/e3/1b/75/e31b752875679b64fce009922f9f0dda.gif" alt="Chat Animation" class="chat-anim">
+  <h2>Welcome to Our Chat Support</h2>
+  <p>
+    We're here to help you with your stationery needs.<br>
+    <strong style="color:#004aad; font-size:1.1em;">
+      👉 Look for the chatbox at the <span style="background:#fffbe6; border-radius:8px; padding:2px 8px;">bottom right corner</span> of your screen!
+    </strong>
+    <br>Start a chat below or use the live chat widget!
+  </p>
+  <button class="cta-btn" onclick="startConfetti()">🎉 Surprise Me!</button>
+</div>
+<!-- ...existing code... -->
+
+  <footer>
+    <div class="footer-social">
+      <a href="https://facebook.com/" target="_blank" title="Facebook">🌐</a>
+      <a href="https://twitter.com/" target="_blank" title="Twitter">🐦</a>
+      <a href="https://instagram.com/" target="_blank" title="Instagram">📸</a>
+    </div>
+    <p>Need assistance? Reach out to us!</p>
+    <p>Contact us at: <a href="mailto:support@edusupply.com">support@edusupply.com</a> | +91-98765-43210</p>
+    <p>Follow us on social media for updates!</p>
+    <p>© 2025 EduSupply. All rights reserved.</p>
+    <p>Need help? Chat with us for immediate support!</p>
+  </footer>
+  <script>
+    // Simple confetti animation
+    function startConfetti() {
+      for(let i=0; i<40; i++) {
+        let conf = document.createElement('div');
+        conf.className = 'confetti';
+        conf.style.position = 'fixed';
+        conf.style.left = Math.random()*100 + 'vw';
+        conf.style.top = '-30px';
+        conf.style.width = conf.style.height = (Math.random()*8+8) + 'px';
+        conf.style.background = `hsl(${Math.random()*360},90%,60%)`;
+        conf.style.borderRadius = '50%';
+        conf.style.opacity = 0.8;
+        conf.style.zIndex = 9999;
+        conf.style.transition = 'transform 2.2s cubic-bezier(.23,1.02,.64,.99), opacity 2.2s';
+        document.body.appendChild(conf);
+        setTimeout(() => {
+          conf.style.transform = `translateY(${window.innerHeight+60}px) rotate(${Math.random()*360}deg)`;
+          conf.style.opacity = 0;
+        }, 10);
+        setTimeout(() => conf.remove(), 2300);
+      }
+    }
+  </script>
+</body>
+</html>

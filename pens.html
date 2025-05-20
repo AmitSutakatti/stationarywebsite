@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notebook Store - School Supplies</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #2874f0;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #2874f0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #0f59c0;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  🗒️ Pens Store
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://tse3.mm.bing.net/th?id=OIP.ZF6-_ziW9BiyAlPip08SzgHaH4&pid=Api&P=0&h=180" alt="Notebook">
+    <div class="card-content">
+      <h3>BallPoint Pens</h3>
+      <p class="price">₹35</p>
+      <button onclick="addToCart('BallPoint Pens', 35)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i5.walmartimages.com/asr/a6dcd9ec-8496-4420-8182-006cbd354233.c7cb2c6db2f1f89fa10888ffa07cf288.jpeg" alt="Notebook">
+    <div class="card-content">
+      <h3>Gel Pens</h3>
+      <p class="price">₹38</p>
+      <button onclick="addToCart('Gel Pens', 38)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.squarespace-cdn.com/content/v1/5349ba13e4b095a3fb0ba65c/22c47603-2472-4951-874f-b1b4c0a9b7ba/Vintage-Fountain-Pen-Nibs.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Fountain pens</h3>
+      <p class="price">₹40</p>
+      <button onclick="addToCart('Fountain pens', 40)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.azBMEOo2lI4MGPr8ZKM_WwHaGe&pid=Api&P=0&h=180" alt="Notebook">
+    <div class="card-content">
+      <h3>RollerBall Pens</h3>
+      <p class="price">₹50</p>
+      <button onclick="addToCart('RollerBall Pens', 50)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://img1.etsystatic.com/132/1/11590588/il_fullxfull.861000543_d0ni.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Black Pens</h3>
+      <p class="price">₹65</p>
+      <button onclick="addToCart('Black Pens', 65)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/91fF+uiBPkL._AC_SL1500_.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Red Pens</h3>
+      <p class="price">₹180</p>
+      <button onclick="addToCart('Red Pens', 180)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

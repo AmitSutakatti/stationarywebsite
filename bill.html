@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Bill | EduSupply</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #fffbe6; margin: 0; padding: 0; }
+    .bill-container { max-width: 500px; margin: 3rem auto; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px #ffd60033; padding: 2rem; }
+    h2 { color: #004aad; text-align: center; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    th, td { padding: 0.7rem; text-align: left; }
+    th { background: #ffd600; color: #004aad; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    .total-row td { font-weight: bold; color: #004aad; }
+    .clear-btn {
+      margin: 1.5rem auto 0 auto; display: block;
+      background: linear-gradient(90deg, #ffd600 0%, #ffb703 100%);
+      color: #004aad; font-size: 1.1rem; font-weight: bold;
+      padding: 0.7rem 2rem; border: none; border-radius: 30px;
+      cursor: pointer; transition: background 0.3s;
+    }
+    .clear-btn:hover { background: linear-gradient(90deg, #ffe066 0%, #ffb703 100%); }
+  </style>
+</head>
+<body>
+  <div class="bill-container">
+    <h2>Your Bill</h2>
+    <table id="billTable">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Items will be injected here -->
+      </tbody>
+      <tfoot>
+        <tr class="total-row">
+          <td colspan="3">Total</td>
+          <td id="totalAmount">₹0</td>
+        </tr>
+      </tfoot>
+    </table>
+    <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+  </div>
+  <script>
+    function renderBill() {
+      let cart = JSON.parse(localStorage.getItem('cart') || '{}');
+      let tbody = document.querySelector('#billTable tbody');
+      tbody.innerHTML = '';
+      let total = 0;
+      for (let name in cart) {
+        let item = cart[name];
+        let amount = item.count * item.price;
+        total += amount;
+        let tr = document.createElement('tr');
+        tr.innerHTML = `<td>${name}</td><td>${item.count}</td><td>₹${item.price}</td><td>₹${amount}</td>`;
+        tbody.appendChild(tr);
+      }
+      document.getElementById('totalAmount').textContent = '₹' + total;
+    }
+    function clearCart() {
+      localStorage.removeItem('cart');
+      renderBill();
+    }
+    renderBill();
+  </script>
+</body>
+</html>

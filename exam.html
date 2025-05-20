@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ExamKit Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #2874f0;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #2874f0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #0f59c0;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  🗒️ ExamKit Store
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://rukminim1.flixcart.com/image/1408/1408/geometry-box/r/p/7/classmate-victor-original-imadunaapcssyaq2.jpeg?q=90" alt="Geometry Box">
+    <div class="card-content">
+      <h3>Geometry Box</h3>
+      <p class="price">₹35</p>
+     <button onclick="addToCart('Geometry Box', 35)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/61f2OepC6IL._AC_SL1500_.jpg" alt="Clip Board">
+    <div class="card-content">
+      <h3>Clip Board</h3>
+      <p class="price">₹38</p>
+      <button onclick="addToCart('Clip Board', 38)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.pinimg.com/originals/56/4a/75/564a75652ba94818259829179f83675c.jpg" alt="OMR Sheets">
+    <div class="card-content">
+      <h3>OMR Sheets</h3>
+      <p class="price">₹40</p>
+      <button onclick="addToCart('OMR Sheets', 40)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/51wZNchjq4L.jpg" alt="Calculator">
+    <div class="card-content">
+      <h3>Calculator</h3>
+      <p class="price">₹50</p>
+      <button onclick="addToCart('Calculator', 50)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://tse4.mm.bing.net/th?id=OIP.9cROm9YGsztkNaRruTU-YgHaHa&pid=Api&P=0&h=180" alt="Admit Card Holders">
+    <div class="card-content">
+      <h3>Admit Card Holders</h3>
+      <p class="price">₹65</p>
+      <button onclick="addToCart('Admit Card Holders', 65)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://www.mydoorsign.com/img/lg/S/exam-room-sign-se-2446.png" alt="Exam Room Signage">
+    <div class="card-content">
+      <h3>Exam Room Signage</h3>
+      <p class="price">₹180</p>
+      <button onclick="addToCart('Exam Room Signage', 180)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '{}');
+  if (!cart[name]) cart[name] = { count: 0, price: price };
+  cart[name].count += 1;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+</script>
+</body>
+</html>

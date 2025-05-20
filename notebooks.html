@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notebook Store - School Supplies</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #2874f0;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      color: green;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #2874f0;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #0f59c0;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  🗒️ Notebooks Store
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://youcanjournal.com/wp-content/uploads/2023/05/notebooks-featured.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Single Line Notebook</h3>
+      <p class="price">₹35</p>
+      <button onclick="addToCart('Single Line Notebook', 35)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://m.media-amazon.com/images/I/71se1m2WxFL._SX679_.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Double Line Notebook</h3>
+      <p class="price">₹38</p>
+      <button onclick="addToCart('Double Line Notebook', 38)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1678256330i/80632958.jpg" alt="Notebook">
+    <div class="card-content">
+      <h3>Graph Notebook</h3>
+      <p class="price">₹40</p>
+      <button onclick="addToCart('Graph Notebook', 40)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.cRAUmVn5G75pefLH2RwPvwHaHa&pid=Api&P=0&h=180" alt="Notebook">
+    <div class="card-content">
+      <h3>Drawing Book</h3>
+      <p class="price">₹50</p>
+      <button onclick="addToCart('Drawing Book', 50)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2022/5/AM/ZA/FX/102556747/dsc-8970-1000x1000.JPG" alt="Notebook">
+    <div class="card-content">
+      <h3>Hardbound Register</h3>
+      <p class="price">₹65</p>
+      <button onclick="addToCart('Hardbound Register', 65)">Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.aRzuZdew1CGBWTsdV8r4VAHaHa&pid=Api&P=0&h=180" alt="Notebook">
+    <div class="card-content">
+      <h3>Subject Notebook Set (5 pcs)</h3>
+      <p class="price">₹180</p>
+      <button onclick="addToCart('Subject Notebook Set (5 pcs)', 180)">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '{}');
+  if (!cart[name]) cart[name] = { count: 0, price: price };
+  cart[name].count += 1;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account | EduSupply</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(120deg, #ffd600 0%, #ffb703 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeInBg 1.2s;
+    }
+    @keyframes fadeInBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .account-container {
+      background: #fff;
+      margin-top: 3rem;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(255, 183, 3, 0.15);
+      max-width: 400px;
+      width: 90%;
+      animation: slideDown 1s;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .account-container h2 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .account-container p {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      animation: fadeIn 1.5s;
+    }
+    input {
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      border: 1.5px solid #ffd600;
+      font-size: 1rem;
+      background: #fffbe6;
+      transition: border 0.3s, box-shadow 0.3s;
+      outline: none;
+    }
+    input:focus {
+      border: 1.5px solid #004aad;
+      box-shadow: 0 0 8px #ffd60055;
+    }
+    button {
+      background: linear-gradient(90deg, #ffd600 0%, #ffb703 100%);
+      color: #004aad;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 4px 18px rgba(255, 183, 3, 0.15);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+      animation: fadeIn 2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #ffe066 0%, #ffb703 100%);
+      color: #222;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 32px rgba(255, 183, 3, 0.25);
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      color: #008000;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      animation: popIn 0.7s;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .account-anim {
+      display: block;
+      margin: 0 auto 1.5rem auto;
+      width: 120px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-18px);}
+    }
+    @media (max-width: 600px) {
+      .account-container { padding: 1.2rem 0.5rem; }
+      .account-container h2 { font-size: 1.3rem; }
+      .account-anim { width: 80px; }
+    }
+    
+  </style>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "fXXfsZ8kmpDJyQK2l",
+      });
+   })();
+</script>
+<script src="account.js"></script>
+</head>
+<body>
+  <div class="account-container">
+    <img src="edusupply.png" alt="Account Animation" class="account-anim">
+    <h2>Create Your Account</h2>
+    <p>Sign up to access all features and manage your stationery orders easily!</p>
+    <form id="accountForm" autocomplete="off">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required minlength="6">
+      <input type="password" name="confirm" placeholder="Confirm Password" required minlength="6">
+      <button type="submit" onclick="welcomeMsg()">Create Account 🚀</button>
+    </form>
+    <div class="success-message" id="successMsg">
+      Account created successfully! 🎉<br>Welcome to EduSupply.
+    </div>
+  </div>
+  <script>
+    // Animate form submission and show success message
+    document.getElementById('accountForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const pwd = this.password.value;
+      const cpwd = this.confirm.value;
+      if (pwd !== cpwd) {
+        alert("Passwords do not match!");
+        return;
+      }
+      document.getElementById('accountForm').style.display = 'none';
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+      // Confetti effect
+      for(let i=0; i<30; i++) {
+        let conf = document.createElement('div');
+        conf.style.position = 'fixed';
+        conf.style.left = Math.random()*100 + 'vw';
+        conf.style.top = '-30px';
+        conf.style.width = conf.style.height = (Math.random()*8+8) + 'px';
+        conf.style.background = `hsl(${Math.random()*360},90%,60%)`;
+        conf.style.borderRadius = '50%';
+        conf.style.opacity = 0.8;
+        conf.style.zIndex = 9999;
+        conf.style.transition = 'transform 2.2s cubic-bezier(.23,1.02,.64,.99), opacity 2.2s';
+        document.body.appendChild(conf);
+        setTimeout(() => {
+          conf.style.transform = `translateY(${window.innerHeight+60}px) rotate(${Math.random()*360}deg)`;
+          conf.style.opacity = 0;
+        }, 10);
+        setTimeout(() => conf.remove(), 2300);
+      }
+    });
+  </script>
+</body>
+</html>

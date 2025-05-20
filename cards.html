@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduSupply | Stationery Shop</title>
+  <link rel="stylesheet" href="cards.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">EduSupply</div>
+    <input type="text" class="search" placeholder="Search stationery...">
+    <div class="cart">🛒 Cart</div>
+    <a href="bill.html" class="bill-btn">View Bill</a>
+  </div>
+  </header>
+
+  <!-- Categories -->
+  <section class="categories">
+    <button class="cat-btn">All</button>
+    <button class="cat-btn" onclick="window.location.href='notebooks.html'">Notebooks</button>
+    <button class="cat-btn" onclick="window.location.href='pens.html'">Pens</button>
+    <button class="cat-btn" onclick="window.location.href='markers.html'">Markers</button>
+    <button class="cat-btn" onclick="window.location.href='craft.html'">Craft Supplies</button>
+    <button class="cat-btn" onclick="window.location.href='exam.html'">Exam Kits</button>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="product-grid">
+    <!-- Sample product -->
+    <div class="product-card">
+      <img src="https://rukminim1.flixcart.com/image/832/832/kf2v3ww0/diary-notebook/j/c/3/classmate-02105007-original-imafvm2cghdak77q.jpeg?q=70" alt="Notebook">
+      <h3>Classmate Notebook</h3>
+      <p>₹45</p>
+     <button onclick="addToCart('Classmate Notebook', 45)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://5.imimg.com/data5/TC/BO/AE/SELLER-10835404/register-note-books-500x500.jpg" alt="Pens">
+      <h3>Registers</h3>
+      <p>₹60</p>
+      <button onclick="addToCart('Registers', 60)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://cdn-reichelt.de/bilder/web/xxl_ws/E200/STAEDTLER_351WP8-02.png" alt="Markers">
+      <h3>Whiteboard Marker Set</h3>
+      <p>₹120</p>
+      <button onclick="addToCart('Whiteboard Marker Set', 120)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://monafstores.com/wp-content/uploads/2020/05/Stamp_Pad_Ink-600x600.jpg" alt="Highlighter">
+      <h3>Stamp pads and Ink</h3>
+      <p>₹75</p>
+      <button onclick="addToCart('Stamp pads and Ink', 75)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/2/BQ/QX/QR/106738092/a4-premium-paper-rim.jpg" alt="Craft Kit">
+      <h3>A4 Size Papers</h3>
+      <p>₹250</p>
+      <button onclick="addToCart('A4 Size Papers', 250)">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.Fs6b8i4UW63DDhIDOicjvgHaFj&pid=Api&P=0&h=180" alt="Geometry Box">
+      <h3>Chalks</h3>
+      <p>₹90</p>
+      <button onclick="addToCart('Chalks', 90)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://5.imimg.com/data5/SELLER/Default/2024/4/414777781/DQ/SX/IQ/25121519/school-diary-printing-service-1000x1000.jpeg" alt="New Product">
+      <h3>School/college Diaries</h3>
+      <p>₹100</p>
+      <button onclick="addToCart('School/college Diaries', 100)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <img src="https://schoolcalendarinfo.com/wp-content/uploads/2023/04/Henry-County-Schools-Calendar-page-001-791x1024.jpg" alt="New Product">
+        <h3>School/college Calenders</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('School/college Calenders', 100)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://www.school-smart.co.uk/wp-content/uploads/folder.jpg" alt="New Product">
+        <h3>Custom Folders</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Custom Folders', 100)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.uJOBK0zuQioDf-I2liyzhgHaF8&pid=Api&P=0&h=180" alt="New Product">
+        <h3>Sheet Paper Holders</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Sheet Paper Holders', 100)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71h-eXCc+2L._SL1420_.jpg" alt="New Product">
+        <h3>Paper holders</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Paper holders', 100)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61Jkuq77tXL.jpg" alt="New Product">
+        <h3>Laptop Holders</h3>
+        <p>₹100</p>
+        <button onclick="addToCart('Laptop Holders', 100)">Add to Cart</button>
+      </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EduSupply. All rights reserved.</p>
+  </footer>
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '{}');
+  if (!cart[name]) cart[name] = { count: 0, price: price };
+  cart[name].count += 1;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+}
+</script>
+</body>
+</html>
